@@ -26,13 +26,11 @@ function App() {
     temp = useSelector((state) => state.weather.weather),
     dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getWeather());
-
-    i18n.changeLanguage("ar");
-
-    setDate(moment().format("dddd, MMMM Do YYYY"));
-  }, []);
+useEffect(() => {
+  dispatch(getWeather());
+  i18n.changeLanguage("ar");
+  setDate(moment().format("dddd, MMMM Do YYYY"));
+}, [dispatch, i18n]);
 
   return (
     <div className="App" style={{ direction: lang === "ar" ? "rtl" : "ltr" }}>
